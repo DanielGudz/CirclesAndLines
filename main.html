@@ -1,0 +1,44 @@
+<html> 
+ <head>
+    <title></title> 
+</head>
+ <body>
+    <p align="center"> 
+      <canvas id="mycanvas"></canvas> 
+    </p>
+ </body> 
+ <script src="https://cdn.jsdelivr.net/processing.js/1.4.8/processing.min.js"></script>
+ <script>
+var sketchProc = function(processingInstance) {
+with (processingInstance) {
+//START
+size(400, 400); 
+frameRate(120);
+
+var numLines = 8;
+var YnumCircles = 6;
+var gap = 400 / (numLines);
+var mul = 1;
+var gapC = 400 / (YnumCircles);
+
+for (var i = 1; i < numLines; i++) {
+    var x = gap * i;
+    fill(148, 87, 148);
+    line(x,0,x,400);
+    
+    for(var a = 1; a < YnumCircles; a++){
+        ellipse(x-gap/2,gapC*a,10,10);
+        
+    }
+}
+
+
+//END
+}
+};
+
+var canvas = document.getElementById("mycanvas"); 
+var processingInstance = new Processing(canvas, sketchProc); 
+ </script>
+
+</html>
